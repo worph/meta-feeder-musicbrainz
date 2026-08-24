@@ -11,9 +11,9 @@
 /// application and carry contact information. A 403 here looks exactly like a
 /// rate-limit and is easy to misdiagnose, so keep this descriptive.
 pub const USER_AGENT: &str = concat!(
-    "meta-music/",
+    "musicbrainz-feeder/",
     env!("CARGO_PKG_VERSION"),
-    " ( https://github.com/worph/meta-feeder-music )"
+    " ( https://github.com/worph/meta-feeder-musicbrainz )"
 );
 
 // ---------------------------------------------------------------------------
