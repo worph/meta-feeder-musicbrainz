@@ -262,6 +262,11 @@ impl Card {
         // is a well-formed query and routing needs no special case.
         fields.insert("fileType".to_string(), "card".to_string());
         fields.insert("contentKind".to_string(), self.kind.content_kind().to_string());
+        // Third axis (METADATA_KEYS.md §1): MusicBrainz is the identity graph
+        // that *defines* the music domain, so both card kinds land there.
+        // Literal rather than via `meta_feeder_sdk::domain` — this feeder pins
+        // the SDK by git tag.
+        fields.insert("domain".to_string(), "music".to_string());
         fields.insert("title".to_string(), title.to_string());
 
         // The id bag. Which field carries the card's own MBID depends on what
