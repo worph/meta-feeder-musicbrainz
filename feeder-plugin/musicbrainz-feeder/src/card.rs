@@ -265,8 +265,10 @@ impl Card {
         // Third axis (METADATA_KEYS.md §1): MusicBrainz is the identity graph
         // that *defines* the music domain, so both card kinds land there.
         // Literal rather than via `meta_feeder_sdk::domain` — this feeder pins
-        // the SDK by git tag.
+        // the SDK by git tag. An album and an artist are both closed works, not
+        // instalments of a run, so the fourth axis is `standalone`.
         fields.insert("domain".to_string(), "music".to_string());
+        fields.insert("workForm".to_string(), "standalone".to_string());
         fields.insert("title".to_string(), title.to_string());
 
         // The id bag. Which field carries the card's own MBID depends on what
